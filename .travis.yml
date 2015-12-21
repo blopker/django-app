@@ -3,11 +3,11 @@ python:
   - "3.5"
 
 install:
-	# Get newest node
-	- . $HOME/.nvm/nvm.sh
-	- nvm install stable
-	- nvm use stable
-	- make
+# Get newest node
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
+  - make
 
 # command to run tests
 script: make test
