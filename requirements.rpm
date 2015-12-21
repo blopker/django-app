@@ -1,0 +1,22 @@
+##basic build dependencies of various Django apps for Ubuntu 14.04
+#required to translate
+gettext
+python-dev
+python-setuptools
+python3-dev
+python-virtualenv
+python-pip
+
+firefox
+automake
+libtool
+libreadline6
+libreadline6-dev
+libreadline-dev
+libsqlite3-dev
+libxml2
+libxml2-dev
+libssl-dev
+libbz2-dev
+wget
+curl
