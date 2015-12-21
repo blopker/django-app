@@ -1,7 +1,9 @@
 language: python
 python:
   - "3.5"
+node_js:
+  - "stable"
 # command to install dependencies
-install: "pip install -r requirements/local.txt"
+install: make
 # command to run tests
-script: py.test
+script: make test
