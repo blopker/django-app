@@ -1,9 +1,13 @@
 language: python
 python:
   - "3.5"
-node_js:
-  - "5"
-# command to install dependencies
-install: make
+
+install:
+	# Get newest node
+	- . $HOME/.nvm/nvm.sh
+	- nvm install stable
+	- nvm use stable
+	- make
+
 # command to run tests
 script: make test
