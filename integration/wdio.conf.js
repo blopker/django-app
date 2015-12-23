@@ -1,3 +1,8 @@
+'use strict';
+
+let exec = require('child_process').exec;
+let children = [];
+
 exports.config = {
 
     //
@@ -104,7 +109,27 @@ exports.config = {
     //
     // Gets executed before all workers get launched.
     onPrepare: function() {
-        // do something
+        children.push(exec('make selenium'));
+        children.push(exec('make start'));
+
+        children.forEach(c => {
+            c.stdout.on('data', function (data) {
+              console.log('stdout: ' + data);
+            });
+
+            c.stderr.on('data', function (data) {
+              console.log('stderr: ' + data);
+            });
+
+            c.on('close', function (code) {
+              console.log('child process exited with code ' + code);
+            });
+        })
+
+        // Wait for servers to start
+        return new Promise(function(resolve) {
+            setTimeout(resolve, 10000);
+        });
     },
     //
     // Gets executed before test execution begins. At this point you will have access to all global
@@ -122,6 +147,6 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
     onComplete: function() {
-        // do something
+        children.forEach(c => c.kill());
     }
 };

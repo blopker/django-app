@@ -30,7 +30,7 @@ selenium:
 
 test:
 	@py.test
-	# @npm test
+	@npm test
 
 clean:
 	@rm -rf venv
