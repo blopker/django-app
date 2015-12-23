@@ -10,4 +10,8 @@ install:
   - make
 
 # command to run tests
-script: make test
+script:
+  # Start fake x for integration tests
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - make test
