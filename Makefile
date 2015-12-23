@@ -11,6 +11,7 @@ else
 endif
 
 build: pip npm
+	./scripts/install_selenium.sh
 
 pip:
 	@pip install -r requirements/local.txt
@@ -26,7 +27,7 @@ venv:
 	@virtualenv --python=python3.5 venv
 
 selenium:
-	@selenium-server
+	@java -jar tmp/selenium-server-standalone.jar
 
 test:
 	@py.test
@@ -35,5 +36,6 @@ test:
 clean:
 	@rm -rf venv
 	@rm -rf node_modules
+	@rm -rf tmp
 
 .PHONY: all start venv selenium test clean

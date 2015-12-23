@@ -9,7 +9,7 @@ Development
 -----------
 1. Clone repo
 2. `cd` in to repo
-3. Run `./install_os_dependancies.sh`
+3. Run `./scripts/install_os_dependancies.sh`
 4. Run `make venv`
 5. Run `. venv/bin/activate`
 6. Run `make`
