@@ -112,23 +112,24 @@ exports.config = {
         children.push(exec('make selenium'));
         children.push(exec('make start'));
 
-        children.forEach(c => {
-            c.stdout.on('data', function (data) {
-              console.log('stdout: ' + data);
-            });
+        // Uncomment to debug
+        // children.forEach(c => {
+        //     c.stdout.on('data', function (data) {
+        //       console.log('stdout: ' + data);
+        //     });
 
-            c.stderr.on('data', function (data) {
-              console.log('stderr: ' + data);
-            });
+        //     c.stderr.on('data', function (data) {
+        //       console.log('stderr: ' + data);
+        //     });
 
-            c.on('close', function (code) {
-              console.log('child process exited with code ' + code);
-            });
-        })
+        //     c.on('close', function (code) {
+        //       console.log('child process exited with code ' + code);
+        //     });
+        // })
 
         // Wait for servers to start
         return new Promise(function(resolve) {
-            setTimeout(resolve, 10000);
+            setTimeout(resolve, 8000);
         });
     },
     //
