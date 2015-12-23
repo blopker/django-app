@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/blopker/django-app.svg?branch=master)](https://travis-ci.org/blopker/django-app)
+
 Requirements
 ------------
 * node.js > 0.12
